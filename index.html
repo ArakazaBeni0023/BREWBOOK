@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f172a">
+  <title>Gestionnaire Boissons - PWA</title>
+  <link rel="manifest" id="manifest">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.5.31/dist/jspdf.plugin.autotable.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-row">
+      <div class="logo"><b>BREWBOOK</b></div>
+      <div class="actions">
+        <button class="icon-btn" id="themeBtn" title="Thème"><i class="bi bi-moon-stars"></i></button>
+        <button class="icon-btn primary-btn" id="addBtn"><i class="bi bi-plus-lg"></i> Ajouter</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="search"><i class="bi bi-search"></i><input id="searchInput"
+        placeholder="Rechercher Primus, Amstel, Coca..."></div>
+    <div id="list" class="list"></div>
+  </main>
+
+  <div class="bottom-bar">
+    <div class="bottom-inner">
+      <div class="totals">
+        <div class="total-item"><small>Coût total</small><b id="totalCost">0 Fbu</b></div>
+        <div class="total-item"><small>Chiffre d'affaires</small><b id="totalRevenue">0 Fbu</b></div>
+        <div class="total-item profit"><small>Bénéfice total</small><b id="totalProfit">0 Fbu</b></div>
+      </div>
+      <div class="total-words" id="totalWordsBox">TOTAL COMMANDE : <b style="text-transform: uppercase;"
+          id="totalWords">zéro
+          Fbu</b></div>
+      <div class="footer-actions">
+        <button class="btn btn-outline" id="resetBtn"><i class="bi bi-arrow-counterclockwise"></i> Réinitialiser
+          Qté</button>
+        <button class="btn btn-primary" id="pdfBtn"><i class="bi bi-file-earmark-pdf"></i> Exporter PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-bg" id="modal">
+    <div class="modal">
+      <h3 id="modalTitle">Ajouter une boisson</h3>
+      <div class="form">
+        <div><label>Nom</label><input id="fName" placeholder="Ex: Primus"></div>
+        <div class="form-row">
+          <div><label>Prix achat casier (Fbu)</label><input id="fCost" type="number" inputmode="numeric"
+              placeholder="36200"></div>
+          <div><label>Bouteilles / casier</label><input id="fBottles" type="number" inputmode="numeric"
+              placeholder="24"></div>
+        </div>
+        <div><label>Prix vente bouteille (Fbu)</label><input id="fSell" type="number" inputmode="numeric"
+            placeholder="4000"></div>
+        <div style="display:flex; gap:8px; margin-top:6px">
+          <button class="btn btn-outline" id="cancelModal" style="flex:1">Annuler</button>
+          <button class="btn btn-primary" id="saveModal" style="flex:1">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
