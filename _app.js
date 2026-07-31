@@ -219,7 +219,7 @@ function nombreEnLettres(n) {
 function totalEnMots(n) {
     if (!n) return 'zéro Fbu';
     const lettres = nombreEnLettres(n);
-    return lettres.toUpperCase() + 'Fbu';
+    return lettres + ' Fbu';
 }
 
 const listEl = document.getElementById('list');
@@ -403,6 +403,7 @@ document.getElementById('pdfBtn').onclick = () => {
     doc.text(splitMots, 14, finalY);
     finalY += splitMots.length * 5 + 5;
     doc.setFontSize(9); doc.setTextColor(100);
+    doc.text(`Formule benefice: (Prix vente x Nb bouteilles) - Prix achat casier. ${filtered.length} reference(s) commandees.`, 14, finalY);
     doc.save(`Bon_Commande_${now.toISOString().slice(0, 10)}.pdf`);
 }
 
